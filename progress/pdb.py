@@ -14,8 +14,6 @@ class ButtDbInterface:
         self.updateurl = url
         self.master_config = mode
 
-
-
     def playtime_global(self):
         players = self.db.do_query(
             "select player, cast(abs(sum(timedelta)) as UNSIGNED) as seconds, count(timedelta) as sessions from progress_playertracker_v2 group by player")

@@ -16,12 +16,11 @@ def hello_world():
 @progressAPI.route('/api/playtime/')
 @progressAPI.route('/api/playtime/<p>/')
 def Playtime(p=None):
-    butt=ButtDbInterface()
+    butt = ButtDbInterface()
     if p:
         playtime = butt.playtime_single(p)
-        a=[]
+        a = []
         a.append({"player": p, "playtime": playtime[0], "sessions": playtime[1]})
-
         return flask.jsonify({"playtime": a})
 
     else:
